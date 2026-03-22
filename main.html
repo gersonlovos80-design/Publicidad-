@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Granja Rosita | Frescura para su mesa</title>
+    <title>Granja Rosita | Gallinas de Calidad Premium</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="app">
+        
+        <div class="top-line"></div>
+
         <header class="hero">
             <div class="logo-container">
                 <img src="logo.jpeg" alt="Granja Rosita Logo" class="main-logo">
@@ -18,13 +22,20 @@
         </header>
 
         <section class="menu">
-            <h2>Nuestros Productos</h2>
+            <h2>Seleccione su Pedido</h2>
             <div class="grid-productos">
                 <div v-for="(producto, index) in productos" :key="index" class="card">
+                    
+                    <div class="img-container">
+                        <img :src="producto.imagen" :alt="producto.nombre" class="producto-img">
+                    </div>
+
                     <div class="card-info">
                         <h3>{{ producto.nombre }}</h3>
-                        <p class="precio">${{ producto.precio.toFixed(2) }}</p>
+                        <p class="descripcion">{{ producto.descripcion }}</p>
+                        <p class="precio">${{ producto.precio.toFixed(2) }} <span>/ {{ producto.unidad }}</span></p>
                     </div>
+
                     <div class="controles">
                         <button @click="modificar(index, -1)">-</button>
                         <span class="cantidad">{{ producto.cantidad }}</span>
@@ -34,12 +45,14 @@
             </div>
         </section>
 
+        <div class="spacer"></div>
+
         <footer v-if="total > 0" class="footer-pedido">
             <div class="resumen">
-                <span>Total a pagar: <strong>${{ total.toFixed(2) }}</strong></span>
+                <span>Total estimado: <strong>${{ total.toFixed(2) }}</strong></span>
             </div>
             <button class="btn-whatsapp" @click="hacerPedido">
-                🛒 Enviar pedido por WhatsApp
+                📲 Enviar pedido por WhatsApp
             </button>
         </footer>
     </div>

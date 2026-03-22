@@ -1,85 +1,184 @@
+/* Definición de Colores */
 :root {
-    --oro: #f1c40f;
-    --crema: #fffdf2;
-    --vino: #8e1c1c;
-    --texto: #2c3e50;
+    --negro: #121212; /* Negro mate premium */
+    --gris-oscuro: #1e1e1e; /* Para tarjetas */
+    --rojo-vino: #8e1c1c; /* El rojo de las rosas en la etiqueta */
+    --crema: #fffdf2; /* Para el texto */
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--crema);
-    color: var(--texto);
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--negro);
+    color: var(--crema);
 }
 
+/* Línea roja decorativa superior */
+.top-line {
+    height: 4px;
+    background-color: var(--rojo-vino);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+/* Sección Hero Dark */
 .hero {
     text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('fondo-textura.jpg');
+    padding: 60px 20px 40px;
+    background: radial-gradient(circle, #2a2a2a 0%, #121212 100%);
+    border-bottom: 1px solid #333;
 }
 
 .main-logo {
-    width: 200px;
+    width: 180px;
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    border: 5px solid var(--oro);
+    box-shadow: 0 0 20px rgba(142, 28, 28, 0.5); /* Sombra roja vino */
+    border: 3px solid var(--rojo-vino);
 }
 
-h1 { font-size: 2.5rem; color: var(--vino); margin: 10px 0; }
+h1 { 
+    font-family: 'Oswald', sans-serif; 
+    font-size: 3rem; 
+    color: var(--rojo-vino); 
+    margin: 15px 0 5px; 
+    text-transform: uppercase;
+}
 
+h2 {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    color: var(--rojo-vino);
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+
+.tagline { font-style: italic; color: #aaa; margin-bottom: 0; }
+
+/* Grid de Productos */
 .grid-productos {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     padding: 20px;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
+/* Tarjetas Dark */
 .card {
-    background: white;
-    padding: 15px;
-    border-radius: 15px;
+    background: var(--gris-oscuro);
+    padding: 20px;
+    border-radius: 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Diseño en columna para móviles */
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 1px solid #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.precio { color: #27ae60; font-weight: bold; font-size: 1.2rem; margin: 5px 0; }
+/* Efecto hover/touch en la tarjeta entera */
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(142, 28, 28, 0.2);
+    border-color: #444;
+}
+
+/* Contenedor de Imagen Interactiva */
+.img-container {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    overflow: visible; /* Para que la imagen pueda crecer fuera */
+}
+
+/* LA ANIMACIÓN: La imagen crece suavemente */
+.producto-img {
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 0.3s ease-out; /* Transición suave */
+    cursor: pointer;
+}
+
+/* Efecto al tocar/hover la imagen */
+.producto-img:hover, .producto-img:active {
+    transform: scale(1.25); /* Crece un 25% */
+}
+
+/* Información de la Tarjeta */
+.card-info { text-align: center; margin-bottom: 15px; }
+.card-info h3 { margin: 0; color: white; font-size: 1.3rem; }
+.descripcion { color: #aaa; font-size: 0.9rem; margin: 5px 0; }
+
+.precio { 
+    color: #27ae60; 
+    font-weight: bold; 
+    font-size: 1.4rem; 
+    margin: 10px 0; 
+}
+.precio span { color: #888; font-size: 0.9rem; font-weight: normal; }
+
+/* Controles de Cantidad Rojos */
+.controles {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    padding: 5px 15px;
+    border-radius: 25px;
+    border: 1px solid #333;
+}
 
 .controles button {
-    background: var(--oro);
+    background: var(--rojo-vino);
+    color: white;
     border: none;
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     font-weight: bold;
+    transition: background 0.2s;
 }
 
-.cantidad { margin: 0 15px; font-weight: bold; font-size: 1.1rem; }
+.controles button:hover { background-color: #a92a2a; }
+.cantidad { margin: 0 20px; font-weight: bold; font-size: 1.2rem; color: white; }
 
+/* Espaciador final */
+.spacer { height: 120px; }
+
+/* Footer de Pedido Dark Premium */
 .footer-pedido {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    background: rgba(30, 30, 30, 0.95); /* Semi-transparente */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    padding: 15px 20px;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.5);
     text-align: center;
     box-sizing: border-box;
+    border-top: 2px solid var(--rojo-vino);
 }
+
+.resumen { margin-bottom: 10px; font-size: 1.1rem; }
+.resumen strong { color: #27ae60; font-size: 1.3rem; }
 
 .btn-whatsapp {
     background: #25d366;
     color: white;
     border: none;
-    padding: 15px 30px;
-    border-radius: 30px;
-    font-size: 1.1rem;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
+    transition: transform 0.2s;
 }
+
+.btn-whatsapp:hover { transform: scale(1.05); }
