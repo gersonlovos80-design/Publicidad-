@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granja Rosita | Frescura para su mesa</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header class="hero">
+            <div class="logo-container">
+                <img src="logo.jpeg" alt="Granja Rosita Logo" class="main-logo">
+            </div>
+            <h1>Granja Rosita</h1>
+            <p class="tagline">"Frescura y calidad de nuestra familia para su mesa"</p>
+        </header>
+
+        <section class="menu">
+            <h2>Nuestros Productos</h2>
+            <div class="grid-productos">
+                <div v-for="(producto, index) in productos" :key="index" class="card">
+                    <div class="card-info">
+                        <h3>{{ producto.nombre }}</h3>
+                        <p class="precio">${{ producto.precio.toFixed(2) }}</p>
+                    </div>
+                    <div class="controles">
+                        <button @click="modificar(index, -1)">-</button>
+                        <span class="cantidad">{{ producto.cantidad }}</span>
+                        <button @click="modificar(index, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer v-if="total > 0" class="footer-pedido">
+            <div class="resumen">
+                <span>Total a pagar: <strong>${{ total.toFixed(2) }}</strong></span>
+            </div>
+            <button class="btn-whatsapp" @click="hacerPedido">
+                🛒 Enviar pedido por WhatsApp
+            </button>
+        </footer>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
