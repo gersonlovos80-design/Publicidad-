@@ -31,12 +31,30 @@ body {
     border-bottom: 1px solid #333;
 }
 
+/* --- ENCONTRAR Y REEMPLAZAR ESTA SECCIÓN --- */
+
 .main-logo {
     width: 180px;
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(142, 28, 28, 0.5); /* Sombra roja vino */
     border: 3px solid var(--rojo-vino);
+    
+    /* --- NUEVAS LÍNEAS PARA LA ANIMACIÓN DEL LOGO --- */
+    transition: transform 0.5s ease-out, box-shadow 0.5s ease; /* Transición suave y un poco más lenta que las gallinas */
+    cursor: pointer;
+    z-index: 10; /* Asegura que esté sobre otros elementos al crecer */
 }
+
+/* EFECTO INTERACTIVO AL TOCAR/HOVER EL LOGO */
+.main-logo:hover, .main-logo:active {
+    /* Gira 15 grados a la derecha y crece un 15% */
+    transform: rotate(15deg) scale(1.15); 
+    
+    /* Aumenta la sombra para dar efecto de profundidad */
+    box-shadow: 0 10px 30px rgba(142, 28, 28, 0.8); 
+}
+
+/* --- FIN DEL REEMPLAZO --- */
 
 h1 { 
     font-family: 'Oswald', sans-serif; 
