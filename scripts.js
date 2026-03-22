@@ -18,7 +18,7 @@ createApp({
                 descripcion: 'Seleccionada directamente del corral.',
                 precio: 11.00, 
                 unidad: 'unidad',
-                imagen: 'gallina-viva.png', // <--- CAMBIA ESTO
+                imagen: 'viva.jpeg', // <--- CAMBIA ESTO
                 cantidad: 0 
             },
             { 
@@ -26,7 +26,7 @@ createApp({
                 descripcion: 'Corte premium, sin hueso.',
                 precio: 5.25, 
                 unidad: 'libra',
-                imagen: 'pechuga.png', // <--- CAMBIA ESTO
+                imagen: 'pechuga.jpg', // <--- CAMBIA ESTO
                 cantidad: 0 
             },
             { 
@@ -34,7 +34,7 @@ createApp({
                 descripcion: 'Ideal para sopas y guisos.',
                 precio: 2.50, 
                 unidad: 'libra',
-                imagen: 'menudencia.png', // <--- CAMBIA ESTO
+                imagen: 'menudencia.jpg', // <--- CAMBIA ESTO
                 cantidad: 0 
             }
         ]);
