@@ -10,7 +10,7 @@ createApp({
                 descripcion: 'Fresca, limpia y lista para cocinar.',
                 precio: 14.50, 
                 unidad: 'unidad',
-                imagen: 'gallina-lavada.png', // <--- CAMBIA ESTO
+                imagen: 'lavada.jpg', // <--- CAMBIA ESTO
                 cantidad: 0 
             },
             { 
